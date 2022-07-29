@@ -4,7 +4,7 @@
     "lastName": "Powell",
     "username": "JP1",
     "password": "JP1",
-    "balance": 85
+    "balance": 69421
 }
 {
     "employeeId": 2,
