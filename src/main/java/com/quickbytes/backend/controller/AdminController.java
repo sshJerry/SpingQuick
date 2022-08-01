@@ -47,9 +47,8 @@ public class AdminController {
 			throw new RuntimeException ("Admin ID Doesn't Exist");
 		Admin existingAdmin = optional.get();
 		updatedAdmin.setFirstName(existingAdmin.getFirstName());
+		updatedAdmin.setUserId(existingAdmin.getUserId());
 		updatedAdmin.setLastName(existingAdmin.getLastName());
-		updatedAdmin.setUsername(existingAdmin.getUsername());
-		updatedAdmin.setPassword(existingAdmin.getPassword());
 		adminRepository.save(updatedAdmin);
 	}
 	// Delete Admin \\

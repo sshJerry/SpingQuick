@@ -5,37 +5,41 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Admin {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	@OneToOne
+	private UserInfo userId;
 	@Column(nullable = false)
 	private String firstName;
 	@Column(nullable = false)
 	private String lastName;
-	@Column(nullable = false)
-	private String username;
-	@Column(nullable = false)
-	private String password;
 	public Admin() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Admin(Long id, String firstName, String lastName, String username, String password) {
+	public Admin(Long id, UserInfo userId, String firstName, String lastName) {
 		super();
 		this.id = id;
+		this.userId = userId;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.username = username;
-		this.password = password;
 	}
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
+	}
+	public UserInfo getUserId() {
+		return userId;
+	}
+	public void setUserId(UserInfo userId) {
+		this.userId = userId;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -49,21 +53,8 @@ public class Admin {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
 	@Override
 	public String toString() {
-		return "Admin [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", username=" + username
-				+ ", password=" + password + "]";
+		return "Admin [id=" + id + ", userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + "]";
 	}
 }
